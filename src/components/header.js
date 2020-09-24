@@ -1,42 +1,39 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import {makeStyles, Typography} from '@material-ui/core'
+import Fade from 'react-reveal/Fade'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+export default function Header () {
+  const classes = useStyles()
+  return(
+  <div className = {classes.root}>
+    <div>
+    <Fade left duration = {500}>
+    <Typography variant="h4" align="center" >Hi, I'm Ariel</Typography>
+    </Fade>
     </div>
-  </header>
-)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+    <div>
+    <Fade delay = {200} duration = {5000}>
+    <Typography>Fullstack Software Engineer, Social Media Marketer, and Aspiring Tiny House Owner</Typography>
+    </Fade>
+    </div>
+
+    <div>
+      <Typography>****THIS PAGE IS STILL UNDER CONSTRUCTION!****</Typography>
+    </div>
+  </div>
+  )
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
-export default Header
+const useStyles = makeStyles({
+  root: {
+    backgroundColor:'white',
+    display:"flex",
+    flexDirection: "column",
+    alignItems: "center", 
+    // maxHeight: "100%",
+    // maxWidth: "100%"
+  }
+})
